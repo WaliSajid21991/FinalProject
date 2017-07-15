@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of Doctors in our hospital</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image url</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Speciality</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @our_doctors.each do |our_doctor| %>
+      <tr>
+        <td><%= our_doctor.image_url %></td>
+        <td><%= our_doctor.firstname %></td>
+        <td><%= our_doctor.lastname %></td>
+        <td><%= our_doctor.speciality %></td>
+        <td><%= link_to 'Show', our_doctor %></td>
+        
+        <div class="links">
+          <!--%if session[:login]==1 %-->
+         <% if current_user.admin? %>
+         <td><%= link_to 'Edit', edit_our_doctor_path(our_doctor) %></td>
+        <td><%= link_to 'Destroy', our_doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%else%>
+      <a href="/appointments/">Link to appointments</a>
+      <%end%>
+      </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<!--% if session[:login] == 1 %-->
+<% if current_user.admin? %>
+<%= link_to 'New Our doctor', new_our_doctor_path %>
+<%end%>
