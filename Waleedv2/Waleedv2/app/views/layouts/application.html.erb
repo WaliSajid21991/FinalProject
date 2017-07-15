@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Waleed</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id='header'>
+  </div>
+<div id='menu'>
+  <div id="navbar">
+    <ul>
+      <li><a href="/profiles">Profiles</a></li>
+      <li><a href="/appointments">Appointments</a></li>
+      <li><a href="/our_doctors">OurDoctors</a></li>
+      <li><a href="/aboutus">About Us</a></li>
+    </ul>
+  </div>
+</div>
+<div id= 'container'>
+  <div id='content'>
+    <p class="notice"><%= flash[:notice]%></p>
+<%=yield%>
+  </div>
+  <div id= 'first-column'>
+    <div class="Searchbox">
+      <h2 class="BoxHeaders">Search Appointments Here</h2>
+    </div>
+  
+  </div>
+</div>
+<div id= 'footer'>
+  <h6 class= "footertext">&copy; Online Appointment System &trade; 2017</h6>
+</div>
+</body>
+</html>
